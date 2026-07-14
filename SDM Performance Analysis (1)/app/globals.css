@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Dark Futuristic Theme - Light Mode Fallback */
+  --background: #0a0e27;
+  --foreground: #e0e6ff;
+  --card: #10142f;
+  --card-foreground: #e0e6ff;
+  --popover: #10142f;
+  --popover-foreground: #e0e6ff;
+  --primary: #00d9ff;
+  --primary-foreground: #0a0e27;
+  --secondary: #7c3aed;
+  --secondary-foreground: #e0e6ff;
+  --muted: #1f2847;
+  --muted-foreground: #8b92b8;
+  --accent: #00d9ff;
+  --accent-foreground: #0a0e27;
+  --destructive: #ff3333;
+  --destructive-foreground: #e0e6ff;
+  --border: #1f2847;
+  --input: #15182e;
+  --ring: #00d9ff;
+  --chart-1: #00d9ff;
+  --chart-2: #7c3aed;
+  --chart-3: #ec4899;
+  --chart-4: #14b8a6;
+  --chart-5: #f97316;
+  --radius: 0.625rem;
+  --sidebar: #0f132a;
+  --sidebar-foreground: #e0e6ff;
+  --sidebar-primary: #00d9ff;
+  --sidebar-primary-foreground: #0a0e27;
+  --sidebar-accent: #7c3aed;
+  --sidebar-accent-foreground: #e0e6ff;
+  --sidebar-border: #1f2847;
+  --sidebar-ring: #00d9ff;
+}
+
+.dark {
+  --background: #0a0e27;
+  --foreground: #e0e6ff;
+  --card: #10142f;
+  --card-foreground: #e0e6ff;
+  --popover: #10142f;
+  --popover-foreground: #e0e6ff;
+  --primary: #00d9ff;
+  --primary-foreground: #0a0e27;
+  --secondary: #7c3aed;
+  --secondary-foreground: #e0e6ff;
+  --muted: #1f2847;
+  --muted-foreground: #8b92b8;
+  --accent: #00d9ff;
+  --accent-foreground: #0a0e27;
+  --destructive: #ff3333;
+  --destructive-foreground: #e0e6ff;
+  --border: #1f2847;
+  --input: #15182e;
+  --ring: #00d9ff;
+  --chart-1: #00d9ff;
+  --chart-2: #7c3aed;
+  --chart-3: #ec4899;
+  --chart-4: #14b8a6;
+  --chart-5: #f97316;
+  --sidebar: #0f132a;
+  --sidebar-foreground: #e0e6ff;
+  --sidebar-primary: #00d9ff;
+  --sidebar-primary-foreground: #0a0e27;
+  --sidebar-accent: #7c3aed;
+  --sidebar-accent-foreground: #e0e6ff;
+  --sidebar-border: #1f2847;
+  --sidebar-ring: #00d9ff;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  /* Futuristic glow effect for cards */
+  @supports (backdrop-filter: blur(1px)) {
+    .dark [class*="card"] {
+      background: rgba(16, 20, 47, 0.4);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 217, 255, 0.1);
+    }
+  }
+
+  /* Neon text glow */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+
+  /* Input focus styles with glow */
+  input:focus, textarea:focus, select:focus {
+    @apply outline-none;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+
+  /* Button hover effect */
+  button {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  button:hover {
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  }
+
+  /* Enhanced Card Header Styling */
+  [data-slot="card-header"] {
+    background: rgba(5, 7, 18, 0.8);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    margin: 0 0 0 0;
+    padding: 16px 24px;
+  }
+}
